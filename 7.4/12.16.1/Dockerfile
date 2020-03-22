@@ -103,7 +103,7 @@ COPY php/opcache.ini /etc/php7/conf.d/00_opcache.ini
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY apache/vhost.conf /etc/apache2/site-available/000-default.conf
+COPY apache/vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY apache/apache.conf /etc/apache2/conf-available/z-app.conf
 
 RUN a2enmod rewrite remoteip
