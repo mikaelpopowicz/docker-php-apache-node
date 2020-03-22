@@ -8,7 +8,7 @@ RUN apt-get update -y && apt-get install -y \
     git netcat unzip zip
 
 RUN pecl install -o -f redis && rm -rf /tmp/pear && docker-php-ext-enable redis
-RUN docker-php-ext-install -j$(nproc) bcmatch exif gd opcache pcntl pdo_mysql pdo_pgsql pgsql zip
+RUN docker-php-ext-install -j$(nproc) bcmath exif gd opcache pcntl pdo_mysql pdo_pgsql pgsql zip
 
 COPY php/php.ini /usr/local/etc/php/conf.d/web.ini
 COPY php/opcache.ini /etc/php7/conf.d/00_opcache.ini
