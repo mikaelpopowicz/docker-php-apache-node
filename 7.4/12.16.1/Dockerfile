@@ -3,7 +3,7 @@ FROM php:7.4-apache
 WORKDIR /web/html
 
 RUN apt-get update -y && apt-get install -y \
-    libpng-dev libzip-dev \
+    libpng-dev libpq-dev libzip-dev \
     mariadb-client postgresql-client \
     git netcat unzip zip
 
@@ -110,3 +110,5 @@ RUN set -ex \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   # smoke test
   && yarn --version
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
